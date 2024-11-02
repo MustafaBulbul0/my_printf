@@ -6,7 +6,7 @@
 /*   By: mubulbul <mubulbul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 08:47:01 by mubulbul          #+#    #+#             */
-/*   Updated: 2024/11/02 10:06:46 by mubulbul         ###   ########.fr       */
+/*   Updated: 2024/11/02 12:38:18 by mubulbul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,12 @@ void	print_uxx(unsigned int num, const char *format, int *count)
 {
 	char	r_ptr[11];
 	int		j;
+	int		i;
 
 	j = 0;
+	i = 0;
+	while (format[i])
+		i++;
 	if (num == 0)
 	{
 		ft_write("0", 1, count);
@@ -107,8 +111,8 @@ void	print_uxx(unsigned int num, const char *format, int *count)
 	}
 	while (num > 0)
 	{
-		r_ptr[j++] = format[num % 16];
-		num /= 16;
+		r_ptr[j++] = format[num % i];
+		num /= i;
 	}
 	while (j > 0)
 		ft_write(&r_ptr[--j], 1, count);

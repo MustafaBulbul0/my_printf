@@ -6,7 +6,7 @@
 /*   By: mubulbul <mubulbul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 08:46:36 by mubulbul          #+#    #+#             */
-/*   Updated: 2024/11/02 10:25:08 by mubulbul         ###   ########.fr       */
+/*   Updated: 2024/11/02 12:39:10 by mubulbul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,13 @@
 
 void	print_format(char type, va_list args, int *count)
 {
+	char	c;
+
 	if (type == 'c')
-		ft_write(va_arg(args, char *), 1, count);
+	{
+		c = (char)va_arg(args, int);
+		print_cs(&c, 'c', count);
+	}
 	else if (type == 's')
 		print_cs(va_arg(args, char *), 's', count);
 	else if (type == 'p')
