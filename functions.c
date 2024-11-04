@@ -44,10 +44,10 @@ void	print_p(void *ptr, int *count)
 {
 	unsigned long long	address;
 	char				*hexa;
-	char				htoa[15];
+	char				htoa[13];
 	int					j;
 
-	j = 14;
+	j = 12;
 	if (!ptr)
 	{
 		ft_write("0x0", 3, count);
@@ -55,15 +55,16 @@ void	print_p(void *ptr, int *count)
 	}
 	hexa = "0123456789abcdef";
 	address = (unsigned long long)ptr;
-	htoa[0] = '0';
-	htoa[1] = 'x';
+	ft_write("0x", 2 , count);
 	htoa[j--] = '\0';
 	while (address > 0)
 	{
 		htoa[j--] = hexa[address % 16];
 		address /= 16;
 	}
-	ft_write(htoa, 14, count);
+	while (j >= 0)
+		htoa[j--] = '0';
+	ft_write(htoa, 12, count);
 }
 
 void	print_di(int num, int *count)
