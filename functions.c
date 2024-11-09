@@ -6,7 +6,7 @@
 /*   By: mubulbul <mubulbul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 08:47:01 by mubulbul          #+#    #+#             */
-/*   Updated: 2024/11/09 15:05:54 by mubulbul         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:26:24 by mubulbul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	print_p(void *ptr, int *count)
 {
 	unsigned long long	address;
 	char				*hexa;
-	char				htoa[16];
+	char				htoa[17];
 	int					k;
 
 	k = 0;
@@ -61,7 +61,6 @@ void	print_p(void *ptr, int *count)
 		htoa[k++] = hexa[address % 16];
 		address /= 16;
 	}
-	htoa[k] = '\0';
 	while (k != 0)
 	{
 		ft_write(&htoa[k - 1], 1, count);
