@@ -6,7 +6,7 @@
 /*   By: mubulbul <mubulbul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 08:47:01 by mubulbul          #+#    #+#             */
-/*   Updated: 2024/11/02 12:38:18 by mubulbul         ###   ########.fr       */
+/*   Updated: 2024/11/09 12:31:19 by mubulbul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	print_p(void *ptr, int *count)
 	}
 	hexa = "0123456789abcdef";
 	address = (unsigned long long)ptr;
-	ft_write("0x", 2 , count);
+	ft_write("0x", 2, count);
 	htoa[j--] = '\0';
 	while (address > 0)
 	{
