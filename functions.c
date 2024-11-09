@@ -6,7 +6,7 @@
 /*   By: mubulbul <mubulbul@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/02 08:47:01 by mubulbul          #+#    #+#             */
-/*   Updated: 2024/11/09 12:31:19 by mubulbul         ###   ########.fr       */
+/*   Updated: 2024/11/09 15:05:54 by mubulbul         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,27 +44,29 @@ void	print_p(void *ptr, int *count)
 {
 	unsigned long long	address;
 	char				*hexa;
-	char				htoa[13];
-	int					j;
+	char				htoa[16];
+	int					k;
 
-	j = 12;
+	k = 0;
+	hexa = "0123456789abcdef";
 	if (!ptr)
 	{
-		ft_write("0x0", 3, count);
+		ft_write("(nil)", 5, count);
 		return ;
 	}
-	hexa = "0123456789abcdef";
 	address = (unsigned long long)ptr;
 	ft_write("0x", 2, count);
-	htoa[j--] = '\0';
 	while (address > 0)
 	{
-		htoa[j--] = hexa[address % 16];
+		htoa[k++] = hexa[address % 16];
 		address /= 16;
 	}
-	while (j >= 0)
-		htoa[j--] = '0';
-	ft_write(htoa, 12, count);
+	htoa[k] = '\0';
+	while (k != 0)
+	{
+		ft_write(&htoa[k - 1], 1, count);
+		k--;
+	}
 }
 
 void	print_di(int num, int *count)
